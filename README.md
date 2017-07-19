@@ -1,1 +1,1 @@
-A booking app for family camps
+A booking app for camps
