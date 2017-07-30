@@ -5,49 +5,42 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
-import Drawer from 'material-ui/Drawer';
+import NavigationDrawer from './Navigation.js';
 import styled from 'styled-components';
+import * as firebase from "firebase";
 
 const LoginButton = styled(Button) `
 	margin-left: auto;
 `;
+const provider = new firebase.auth.GoogleAuthProvider();
+
 
 class MenuBar extends Component {
     state = {
-        open: {
-            left: false
-        },
+        navigationOpen: false
     };
 
-    toggleDrawer = (side, open) => {
-        const drawerState = {};
-        drawerState[side] = open;
-        this.setState({ open: drawerState });
+    toggleNavigation = () => {
+        this.setState({ navigationOpen: !this.state.navigationOpen });
     };
-    handleLeftOpen = () => this.toggleDrawer('left', true);
-    handleLeftClose = () => this.toggleDrawer('left', false);
+    login = () => {
+        firebase.auth().signInWithRedirect(provider);
+    }
     render() {
         return (
             <div >
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton color="contrast" aria-label="Menu">
-                            <MenuIcon onClick={this.handleLeftOpen} />
+                            <MenuIcon onClick={this.toggleNavigation} />
                         </IconButton>
                         <Typography type="title" color="inherit">
                             BookMeIn
-          </Typography>
-                        <LoginButton color="contrast">Login</LoginButton>
+                        </Typography>
+                        <LoginButton color="contrast" onClick={this.login}>Login</LoginButton>
                     </Toolbar>
                 </AppBar>
-                <Drawer
-                    anchor="left"
-                    open={this.state.open.left}
-                    onRequestClose={this.handleLeftClose}
-                    onClick={this.handleLeftClose}
-                >
-                    <div>hello</div>
-                </Drawer>
+                <NavigationDrawer open={this.state.navigationOpen} toggle={this.toggleNavigation} />
             </div>
         );
     }
