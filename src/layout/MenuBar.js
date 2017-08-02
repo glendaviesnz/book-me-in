@@ -7,13 +7,11 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import NavigationDrawer from './Navigation.js';
 import styled from 'styled-components';
-import * as firebase from "firebase";
+import { authenticate } from '../services/authentication';
 
 const LoginButton = styled(Button) `
 	margin-left: auto;
 `;
-const provider = new firebase.auth.GoogleAuthProvider();
-
 
 class MenuBar extends Component {
     state = {
@@ -24,7 +22,7 @@ class MenuBar extends Component {
         this.setState({ navigationOpen: !this.state.navigationOpen });
     };
     login = () => {
-        firebase.auth().signInWithRedirect(provider);
+        authenticate();
     }
     render() {
         return (

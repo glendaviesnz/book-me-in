@@ -9,17 +9,6 @@ const config = {
     messagingSenderId: "153823656972"
 };
 
-export default function initFirebase() {
+export function initFirebase() {
     firebase.initializeApp(config);
-
-    firebase.auth().getRedirectResult().then(function (result) {
-        if (result.credential) {
-            // let token = result.credential.accessToken;
-        }
-    }).catch(function (error) {
-        // let errorCode = error.code;
-        // let errorMessage = error.message;
-        // let email = error.email;
-        // let credential = error.credential;
-    });
 }
