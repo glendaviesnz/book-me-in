@@ -1,6 +1,8 @@
 import * as firebase from "firebase";
 
 export function initAuthRedirect() {
+
+
     firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
             // let token = result.credential.accessToken;
@@ -10,6 +12,13 @@ export function initAuthRedirect() {
         // let errorMessage = error.message;
         // let email = error.email;
         // let credential = error.credential;
+    });
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            console.log(user);
+        } else {
+            // No user is signed in.
+        }
     });
 }
 
