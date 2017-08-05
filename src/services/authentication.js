@@ -1,7 +1,8 @@
 import * as firebase from "firebase";
+import { store } from '../store/redux';
+import { setCurrentUser } from '../store/current-user.actions';
 
 export function initAuthRedirect() {
-
 
     firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
@@ -16,8 +17,19 @@ export function initAuthRedirect() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             console.log(user);
+            store.dispatch(setCurrentUser({
+                name: user.displayName, 
+                email: user.email,
+                photoURL: user.photoURL,
+                loading: false
+            }))
         } else {
-            // No user is signed in.
+            store.dispatch(setCurrentUser({
+                name: null, 
+                email: null,
+                photoURL: null,
+                loading: false
+            }))
         }
     });
 }

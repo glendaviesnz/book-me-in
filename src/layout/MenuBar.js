@@ -5,7 +5,7 @@ import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import NavigationDrawer from './Navigation.js';
-import Login from '../user/Login';
+import CurrentUser from '../user/CurrentUser';
 
 class MenuBar extends Component {
     state = {
@@ -27,7 +27,9 @@ class MenuBar extends Component {
                         <Typography type="title" color="inherit">
                             BookMeIn
                         </Typography>
-                        <Login />
+                        <CurrentUser>
+                            
+                        </CurrentUser>
                     </Toolbar>
                 </AppBar>
                 <NavigationDrawer open={this.state.navigationOpen} toggle={this.toggleNavigation} />
