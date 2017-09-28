@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Login from './Login';
+import UserAccount from './UserAccount';
 const mapStateToProps = state => {
     return {
         currentUser: state.currentUser
@@ -8,6 +8,6 @@ const mapStateToProps = state => {
 
 const CurrentUser = connect(
     mapStateToProps
-)(Login)
+)(UserAccount)
 
 export default CurrentUser

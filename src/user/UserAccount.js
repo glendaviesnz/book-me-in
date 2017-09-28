@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'material-ui/Button';
 import styled from 'styled-components';
 import { authenticate } from '../services/authentication';
-import MiniProfile from './MiniProfile';
+import UserDetails from './UserDetails';
 import { CircularProgress } from 'material-ui/Progress';
 
 const LoginButton = styled(Button) `
@@ -13,18 +13,18 @@ const Wrapper = styled.div`
     margin-left: auto;
 `
 
-const Login = ({ currentUser }) => {
+const UserAccount = ({ currentUser }) => {
 
     let component;
     const login = () => {
         authenticate();
     }
     if (currentUser.name) {
-        component = <MiniProfile name={currentUser.name} photoURL={currentUser.photoURL} />;
+        component = <UserDetails name={currentUser.name} photoURL={currentUser.photoURL} />;
     } else if (!currentUser.loading){
         component = <LoginButton  onClick={login}>Login</LoginButton>
     } else {
-        component = <CircularProgress color="primary" size={40} className="fadeOut" />
+        component = <CircularProgress color="#ffffff" size={40} className="fadeOut" />
     }
     return (
         <Wrapper>
@@ -34,4 +34,4 @@ const Login = ({ currentUser }) => {
 
 }
 
-export default Login;
+export default UserAccount;

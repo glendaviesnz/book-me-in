@@ -27,9 +27,7 @@ class MenuBar extends Component {
                         <Typography type="title" color="inherit">
                             BookMeIn
                         </Typography>
-                        <CurrentUser>
-                            
-                        </CurrentUser>
+                        <CurrentUser></CurrentUser>
                     </Toolbar>
                 </AppBar>
                 <NavigationDrawer open={this.state.navigationOpen} toggle={this.toggleNavigation} />
