@@ -6,7 +6,6 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mapTo';
 
 import { currentUser } from './current-user.reducer';
-import Devtools from '../Devtools';
 
 const pingEpic = action$ =>
   action$.ofType('PING')
@@ -20,9 +19,10 @@ export const reducers = combineReducers({
   currentUser
 });
 
-const enhancer = compose(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const enhancer = composeEnhancers(
   applyMiddleware(epicMiddleware),
-  Devtools.instrument(),
   persistState(
     window.location.href.match(
       /[?&]debug_session=([^&#]+)\b/

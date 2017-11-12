@@ -24,7 +24,7 @@ const UserAccount = ({ currentUser }) => {
     } else if (!currentUser.loading){
         component = <LoginButton  onClick={login}>Login</LoginButton>
     } else {
-        component = <CircularProgress color="primary" size={40} className="fadeOut" />
+        component = <CircularProgress color="#ffffff" size={40} className="fadeOut" />
     }
     return (
         <Wrapper>
