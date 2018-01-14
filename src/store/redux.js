@@ -6,13 +6,10 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mapTo';
 
 import { currentUser } from './current-user.reducer';
+import { loginEpic } from './current-user.epics';
 
-const pingEpic = action$ =>
-  action$.ofType('PING')
-    .do(() => console.log('pingdingdong'))
-    .mapTo({ type: 'PONG' });
 export const rootEpic = combineEpics(
-  pingEpic
+  loginEpic
 );
 const epicMiddleware = createEpicMiddleware(rootEpic);
 export const reducers = combineReducers({

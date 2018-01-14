@@ -16,7 +16,6 @@ export function initAuthRedirect() {
     });
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            console.log(user);
             store.dispatch(setCurrentUser({
                 name: user.displayName, 
                 email: user.email,
