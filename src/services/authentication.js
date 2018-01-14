@@ -1,4 +1,4 @@
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 import { store } from '../store/redux';
 import { setCurrentUser } from '../store/current-user.actions';
 
