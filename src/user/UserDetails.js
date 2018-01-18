@@ -20,22 +20,24 @@ class UserDetails extends React.Component {
         anchorEl: null,
     };
 
-    handleClick = event => {
+    openMenu = event => {
         this.setState({ anchorEl: event.currentTarget });
     };
 
-    handleClose = () => {
+    closeMenu = () => {
         this.setState({ anchorEl: null });
     };
+
     logout = () => {
-        this.handleClose();
+        this.closeMenu();
         logout();
     }
+
     render() {
         const { anchorEl } = this.state;
         return (
             <div>
-                <ProfileWrapper className="fadeIn" onClick={this.handleClick}>
+                <ProfileWrapper className="fadeIn" onClick={this.openMenu}>
                     <div>{this.props.name}</div>
                     <UserPhoto src={this.props.photoURL} />
                 </ProfileWrapper>
@@ -43,7 +45,7 @@ class UserDetails extends React.Component {
                     id="simple-menu"
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
-                    onClose={this.handleClose}
+                    onClose={this.closeMenu}
                 >
                     <MenuItem onClick={this.logout}>Logout</MenuItem>
                 </Menu>
