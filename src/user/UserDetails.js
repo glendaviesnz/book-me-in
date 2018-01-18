@@ -18,30 +18,36 @@ const UserPhoto = styled.img`
 class UserDetails extends React.Component {
     state = {
         anchorEl: null,
-        open: false,
     };
-    openMenu = event => {
-        this.setState({ open: true, anchorEl: event.currentTarget });
+
+    handleClick = event => {
+        this.setState({ anchorEl: event.currentTarget });
     };
-    handleMenuItem = () => {
-        this.setState({ open: false });
+
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+    };
+    logout = () => {
+        this.handleClose();
         logout();
-    };
+    }
     render() {
+        const { anchorEl } = this.state;
         return (
-            <ProfileWrapper className="fadeIn" onClick={this.openMenu}>
-                <div>{this.props.name}</div>
-                <UserPhoto src={this.props.photoURL} />
+            <div>
+                <ProfileWrapper className="fadeIn" onClick={this.handleClick}>
+                    <div>{this.props.name}</div>
+                    <UserPhoto src={this.props.photoURL} />
+                </ProfileWrapper>
                 <Menu
                     id="simple-menu"
-                    anchorEl={this.state.anchorEl}
-                    open={this.state.open}
-                    onRequestClose={this.handleMenuItem}
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={this.handleClose}
                 >
-                    <MenuItem onClick={this.handleMenuItem}>Logout</MenuItem>
+                    <MenuItem onClick={this.logout}>Logout</MenuItem>
                 </Menu>
-            </ProfileWrapper>
-
+            </div>
         );
     }
 

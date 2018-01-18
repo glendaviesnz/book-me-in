@@ -1,6 +1,8 @@
 import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 
 const NavigationContent= styled.div`
     width: 215px;
@@ -11,10 +13,9 @@ const NavigationDrawer = ({ open, toggle }) => {
         <Drawer
             anchor="left"
             open={open}
-            onRequestClose={toggle}
             onClick={toggle}
         >
-            <NavigationContent>hello</NavigationContent>
+            <NavigationContent><Link to="/events">Events</Link></NavigationContent>
         </Drawer>
     );
 }
