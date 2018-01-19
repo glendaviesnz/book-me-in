@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+
 import UserDetails from './UserDetails';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<UserDetails />, div);
+  shallow(<UserDetails />);
 });
