@@ -19,19 +19,14 @@ class App extends Component {
           <div>
             <div className="App">
               <MenuBar />
-
-
             </div>
-            <Switch>
-
+            <Switch>   
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/events" component={Events} />
             </Switch>
           </div>
         </Router>
-
-
       </MuiThemeProvider>
     );
   }
