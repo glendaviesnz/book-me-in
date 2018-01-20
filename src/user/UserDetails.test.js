@@ -3,6 +3,6 @@ import { shallow } from 'enzyme';
 
 import UserDetails from './UserDetails';
 it('renders without crashing', () => {
-  shallow(<UserDetails />);
+  const wrapper = shallow(<UserDetails />);
+  expect(wrapper).toMatchSnapshot();
 });
-
