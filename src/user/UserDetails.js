@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react'
 import styled from 'styled-components';
 import Menu, { MenuItem } from 'material-ui/Menu';
 
@@ -14,13 +15,20 @@ const UserPhoto = styled.img`
     border-radius: 50%;
     margin-left: 10px;
 `
+type Props = {
+    name: string,
+    photoURL?: string
+}
+type State = {
+    anchorEl: ?HTMLDivElement
+}
 
-class UserDetails extends React.Component {
+class UserDetails extends React.Component<Props, State> {
     state = {
         anchorEl: null,
     };
 
-    openMenu = event => {
+    openMenu = (event: SyntheticEvent<HTMLDivElement>) => {
         this.setState({ anchorEl: event.currentTarget });
     };
 

@@ -1,0 +1,4 @@
+{
+  "extends": "react-app",
+  "semi": [2, "always"]
+}
