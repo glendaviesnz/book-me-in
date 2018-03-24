@@ -8,9 +8,7 @@ import 'rxjs/add/operator/mapTo';
 import { currentUser } from './current-user.reducer';
 import { loginEpic } from './current-user.epics';
 
-export const rootEpic = combineEpics(
-  loginEpic
-);
+export const rootEpic = combineEpics(loginEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
 export const reducers = combineReducers({
   currentUser
@@ -20,20 +18,12 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancer = composeEnhancers(
   applyMiddleware(epicMiddleware),
-  persistState(
-    window.location.href.match(
-      /[?&]debug_session=([^&#]+)\b/
-    )
-  )
+  persistState(window.location.href.match(/[?&]debug_session=([^&#]+)\b/))
 );
 
 export function configureStore(initialState = {}) {
-  const store = createStore(
-    reducers,
-    initialState,
-    enhancer  
-  )
+  const store = createStore(reducers, initialState, enhancer);
   return store;
-};
+}
 
-export const store = configureStore();  
+export const store = configureStore();

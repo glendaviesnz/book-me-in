@@ -10,32 +10,26 @@ import { login as userLogin } from '../store/current-user.actions';
 import { CurrentUser } from '../store/current-user.model';
 
 const LoginButton = styled(Button)`
-	margin-left: auto;
+  margin-left: auto;
 `;
 
 const Wrapper = styled.div`
-    margin-left: auto;
-`
+  margin-left: auto;
+`;
 
-const UserAccount = ({ currentUser } : {currentUser : CurrentUser}) => {
-
-    let component;
-    const login = () => {
-        store.dispatch(userLogin());
-    }
-    if (currentUser.name) {
-        component = <UserDetails name={currentUser.name} photoURL={currentUser.photoURL} />;
-    } else if (!currentUser.loading){
-        component = <LoginButton  onClick={login}>Login</LoginButton>
-    } else {
-        component = <CircularProgress color="accent" size={40} className="fadeOut" />
-    }
-    return (
-        <Wrapper>
-           { component }
-        </Wrapper>
-    );
-
-}
+const UserAccount = ({ currentUser }: { currentUser: CurrentUser }) => {
+  let component;
+  const login = () => {
+    store.dispatch(userLogin());
+  };
+  if (currentUser.name) {
+    component = <UserDetails name={currentUser.name} photoURL={currentUser.photoURL} />;
+  } else if (!currentUser.loading) {
+    component = <LoginButton onClick={login}>Login</LoginButton>;
+  } else {
+    component = <CircularProgress color="accent" size={40} className="fadeOut" />;
+  }
+  return <Wrapper>{component}</Wrapper>;
+};
 
 export default UserAccount;

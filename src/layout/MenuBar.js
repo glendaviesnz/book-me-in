@@ -8,32 +8,32 @@ import NavigationDrawer from './Navigation.js';
 import CurrentUser from '../user/CurrentUser';
 
 class MenuBar extends Component {
-    state = {
-        navigationOpen: false
-    };
+  state = {
+    navigationOpen: false
+  };
 
-    toggleNavigation = () => {
-        this.setState({ navigationOpen: !this.state.navigationOpen });
-    };
+  toggleNavigation = () => {
+    this.setState({ navigationOpen: !this.state.navigationOpen });
+  };
 
-    render() {
-        return (
-            <div >
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton color="contrast" aria-label="Menu">
-                            <MenuIcon onClick={this.toggleNavigation} />
-                        </IconButton>
-                        <Typography type="title" color="inherit">
-                            BookMeIn
-                        </Typography>
-                        <CurrentUser></CurrentUser>
-                    </Toolbar>
-                </AppBar>
-                <NavigationDrawer open={this.state.navigationOpen} toggle={this.toggleNavigation} />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton color="contrast" aria-label="Menu">
+              <MenuIcon onClick={this.toggleNavigation} />
+            </IconButton>
+            <Typography type="title" color="inherit">
+              BookMeIn
+            </Typography>
+            <CurrentUser />
+          </Toolbar>
+        </AppBar>
+        <NavigationDrawer open={this.state.navigationOpen} toggle={this.toggleNavigation} />
+      </div>
+    );
+  }
 }
 
 export default MenuBar;

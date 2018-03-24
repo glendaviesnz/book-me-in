@@ -1,11 +1,11 @@
-import {SET_CURRENT_USER} from './current-user.actions';
+import { SET_CURRENT_USER } from './current-user.actions';
 
 const initialState = {
-    name: null,
-    email: null,
-    photoUrl: null,
-    loading: true
-}
+  name: null,
+  email: null,
+  photoUrl: null,
+  loading: true
+};
 export function currentUser(state = initialState, action) {
   switch (action.type) {
     case SET_CURRENT_USER:
@@ -14,8 +14,8 @@ export function currentUser(state = initialState, action) {
         email: action.currentUser.email,
         photoURL: action.currentUser.photoURL,
         loading: action.currentUser.loading
-      })
+      });
     default:
-      return state
+      return state;
   }
 }

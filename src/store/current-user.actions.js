@@ -6,13 +6,13 @@ export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 export const LOGIN = 'LOGIN';
 
 export function setCurrentUser(currentUser: CurrentUser) {
-  return { type: SET_CURRENT_USER, currentUser }
+  return { type: SET_CURRENT_USER, currentUser };
 }
 
 export function removeCurrentUser() {
-  return { type: SET_CURRENT_USER }
+  return { type: SET_CURRENT_USER };
 }
 
 export function login() {
-  return { type: LOGIN }
+  return { type: LOGIN };
 }

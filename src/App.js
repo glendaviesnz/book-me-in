@@ -11,27 +11,21 @@ import './App.css';
 const theme = createMuiTheme();
 
 class App extends Component {
-
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <Router >
+        <Router>
           <div>
             <div className="App">
               <MenuBar />
-
-
             </div>
             <Switch>
-
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/events" component={Events} />
             </Switch>
           </div>
         </Router>
-
-
       </MuiThemeProvider>
     );
   }
