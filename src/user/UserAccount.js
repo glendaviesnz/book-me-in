@@ -1,9 +1,8 @@
-// @flow
-import React from 'react';
-import Button from 'material-ui/Button';
+import * as React from 'react';;
+import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import UserDetails from './UserDetails';
-import { CircularProgress } from 'material-ui/Progress';
+import { CircularProgress } from '@material-ui/core/CircularProgress';
 
 import { store } from '../store/redux';
 import { login as userLogin } from '../store/current-user.actions';
@@ -17,7 +16,7 @@ const Wrapper = styled.div`
   margin-left: auto;
 `;
 
-const UserAccount = ({ currentUser }: { currentUser: CurrentUser }) => {
+const UserAccount = ({ currentUser }) => {
   let component;
   const login = () => {
     store.dispatch(userLogin());

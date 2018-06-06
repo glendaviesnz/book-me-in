@@ -1,14 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 
 import { addToCollection } from '../services/database';
 
 const doDatabase = () => {
   addToCollection('users', {
+    born: 1815,
     first: 'Ada',
     last: 'Lovelace',
-    born: 1815
   }).subscribe(docRef => {
-    console.log('Document written with ID: ', docRef.id);
+    // console.log('Document written with ID: ', docRef.id);
   });
 };
 const Events = () => {

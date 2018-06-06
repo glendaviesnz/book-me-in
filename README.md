@@ -1,1 +1,3 @@
-A booking app for camps
+#BookMeIn
+
+An app for handling camp and conference bookings

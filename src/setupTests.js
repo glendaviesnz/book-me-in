@@ -1,9 +1,0 @@
-import './polyfills';
-import './rxjs-operators';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({
-  adapter: new Adapter(),
-  snapshotSerializers: ['enzyme-to-json/serializer']
-});

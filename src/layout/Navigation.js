@@ -1,5 +1,5 @@
-import React from 'react';
-import Drawer from 'material-ui/Drawer';
+import * as React from 'react';
+import Drawer from '@material-ui/core/Drawer';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 

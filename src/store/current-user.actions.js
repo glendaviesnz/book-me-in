@@ -1,11 +1,10 @@
-// @flow
 import { CurrentUser } from './current-user.model';
 
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 export const LOGIN = 'LOGIN';
 
-export function setCurrentUser(currentUser: CurrentUser) {
+export function setCurrentUser(currentUser) {
   return { type: SET_CURRENT_USER, currentUser };
 }
 

@@ -1,7 +1,6 @@
-// @flow
 import * as React from 'react';
 import styled from 'styled-components';
-import Menu, { MenuItem } from 'material-ui/Menu';
+import Menu, { MenuItem } from '@material-ui/core/Menu';
 
 import { logout } from '../services/authentication';
 
@@ -15,25 +14,18 @@ const UserPhoto = styled.img`
   border-radius: 50%;
   margin-left: 10px;
 `;
-type Props = {
-  name: string,
-  photoURL?: string
-};
-type State = {
-  anchorEl: ?HTMLDivElement
-};
 
-class UserDetails extends React.Component<Props, State> {
+class UserDetails extends React.Component {
   state = {
-    anchorEl: null
+    anchorEl
   };
 
-  openMenu = (event: SyntheticEvent<HTMLDivElement>) => {
-    this.setState({ anchorEl: event.currentTarget });
+  openMenu = (event) => {
+    this.setState({ anchorEl });
   };
 
   closeMenu = () => {
-    this.setState({ anchorEl: null });
+    this.setState({ anchorEl });
   };
 
   logout = () => {

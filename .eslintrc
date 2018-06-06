@@ -1,8 +1,0 @@
-{
-  "extends": ["react-app", "prettier"],
-  "semi": [2, "always"],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": "error"
-  }
-}

@@ -21,19 +21,20 @@ export function initAuthRedirect() {
     if (user) {
       store.dispatch(
         setCurrentUser({
-          name: user.displayName,
           email: user.email,
-          photoURL: user.photoURL,
-          loading: false
+          loading: false,
+          name: user.displayName,
+          photoURL: user.photoURL
         })
       );
     } else {
       store.dispatch(
         setCurrentUser({
-          name: null,
           email: null,
-          photoURL: null,
-          loading: false
+          loading: false,
+          name: null,
+          photoURL: null
+          
         })
       );
     }

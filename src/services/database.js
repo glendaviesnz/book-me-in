@@ -1,6 +1,6 @@
 import firebase from './firebase';
 import 'firebase/firestore';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 const database = firebase.firestore();
 

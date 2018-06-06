@@ -1,11 +1,8 @@
-// @flow
+
 import { connect } from 'react-redux';
 import UserAccount from './UserAccount';
 
-type State = {
-  currentUser: any
-};
-const mapStateToProps = (state: State) => {
+const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser
   };
