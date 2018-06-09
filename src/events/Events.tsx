@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-// import { addToCollection } from '../services/database';
+import { getCollection } from '../services/database';
 
 // const doDatabase = () => {
 //   addToCollection('users', {
@@ -11,11 +11,22 @@ import * as React from 'react';
 //     // console.log('Document written with ID: ', docRef.id);
 //   });
 // };
+
+const doDatabase = () => {
+  getCollection('users').subscribe((data: any) => {
+       data.forEach((user: any) => {
+        
+        if (user) {
+           // lklk
+         }
+       })
+  })
+};
 const Events = () => {
   return (
     <div>
       <h1>Events</h1>
-      {/* <div onClick={doDatabase}>Database</div> */}
+      <div onClick={doDatabase}>Database</div>
     </div>
   );
 };

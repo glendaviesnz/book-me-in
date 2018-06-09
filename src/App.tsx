@@ -1,5 +1,5 @@
-
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -8,14 +8,17 @@ import './App.css';
 import { default as Events } from './events/Events';
 import { default as Home } from './Home';
 import { default as MenuBar } from './layout/MenuBar';
-
-
-const theme = createMuiTheme();
+import theme from './theme';
 
 class App extends React.Component {
+  public componentWillMount() {
+    document.title='BookMeIn: Home';
+  }
+
   public render() {
     return (
       <MuiThemeProvider theme={theme}>
+        <CssBaseline />
         <Router>
           <div>
             <div className="App">

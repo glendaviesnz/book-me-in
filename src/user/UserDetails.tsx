@@ -3,7 +3,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { css } from 'emotion'
 import * as React from 'react';
 
-
 import { logout } from '../services/authentication';
 
 const profileStyles = css`

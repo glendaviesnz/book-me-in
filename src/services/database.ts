@@ -1,11 +1,13 @@
-// import 'firebase/firestore';
-// import { from } from 'rxjs';
+import { from } from 'rxjs';
 
-// import firebase from '../config/firebase';
+import firebase from '../config/firebase';
 
-// // const database = firebase.firestore();
+const database = (firebase as any).firestore();
+const settings = {timestampsInSnapshots: true};
+database.settings(settings);
 
-// export const addToCollection = (collection: any, data: any) => {
-//   const dbCall = database.collection(collection).add(data);
-//   return from(dbCall);
-// };
+export const getCollection = (collection: string) => {
+  return from(database.collection(collection).get().then((snapshot: any) => {
+    return snapshot.docs.map((doc: any) => doc.data());
+  }));
+};
