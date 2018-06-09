@@ -1,7 +1,7 @@
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { css } from 'emotion'
 import * as React from 'react';
-import styled from 'styled-components';
 
 import { login as userLogin } from '../store/current-user.actions';
 import { ICurrentUser } from '../store/current-user.model';
@@ -9,11 +9,11 @@ import { store } from '../store/redux';
 import UserDetails from './UserDetails';
 
 
-const LoginButton = styled(Button)`
+const loginButtonStyles = css`
   margin-left: auto;
 `;
 
-const Wrapper = styled.div`
+const styles = css`
   margin-left: auto;
 `;
 
@@ -25,11 +25,11 @@ const UserAccount = ({ currentUser }: {currentUser: ICurrentUser}) => {
   if (currentUser.name) {
     component = <UserDetails name={currentUser.name} photoURL={currentUser.photoURL} />;
   } else if (!currentUser.loading) {
-    component = <LoginButton onClick={login}>Login</LoginButton>;
+    component = <Button className={loginButtonStyles} onClick={login}>Login</Button>;
   } else {
     component = <CircularProgress color="secondary" size={40} className="fadeOut" />;
   }
-  return <Wrapper>{component}</Wrapper>;
+  return <div className={styles}>{component}</div>;
 };
 
 export default UserAccount;

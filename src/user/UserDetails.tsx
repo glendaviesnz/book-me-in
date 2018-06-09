@@ -1,15 +1,16 @@
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { css } from 'emotion'
 import * as React from 'react';
-import styled from 'styled-components';
+
 
 import { logout } from '../services/authentication';
 
-const ProfileWrapper = styled.div`
+const profileStyles = css`
   display: flex;
   align-items: center;
 `;
-const UserPhoto = styled.img`
+const photoStyles = css`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -41,12 +42,12 @@ class UserDetails extends React.Component<IUserDetailsProps, any> {
   public render() {
     const { anchorEl } = this.state;
     return (
-      <div>
-        <ProfileWrapper className="fadeIn" aria-owns={anchorEl ? 'simple-menu' : undefined}
-          aria-haspopup="true" onClick={this.openMenu}>
+      <div className={profileStyles} aria-owns={anchorEl ? 'simple-menu' : undefined}
+      aria-haspopup="true" onClick={this.openMenu}>
+        
           <div>{this.props.name}</div>
-          <UserPhoto src={this.props.photoURL} />
-        </ProfileWrapper>
+          <img className={photoStyles} src={this.props.photoURL} />
+        
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}

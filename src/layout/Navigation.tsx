@@ -1,10 +1,9 @@
 import Drawer from '@material-ui/core/Drawer';
+import { css } from 'emotion'
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
-
-const NavigationContent = styled.div`
+const navigationStyles = css`
   width: 215px;
   padding: 20px;
 `;
@@ -15,9 +14,9 @@ interface IProps {
 const NavigationDrawer = ({ open, toggle }: IProps) => {
   return (
     <Drawer anchor="left" open={open} onClick={toggle}>
-      <NavigationContent>
+      <div className={navigationStyles}>
         <Link to="/events">Events</Link>
-      </NavigationContent>
+      </div>
     </Drawer>
   );
 };

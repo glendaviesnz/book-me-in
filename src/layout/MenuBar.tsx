@@ -8,8 +8,6 @@ import * as React from 'react';
 import CurrentUser from '../user/CurrentUser';
 import NavigationDrawer from './Navigation';
 
-
-
 class MenuBar extends React.Component {
   public state = {
     navigationOpen: false
