@@ -8,5 +8,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-// const CurrentUser = connect(mapStateToProps)(UserAccount);
 export default connect(mapStateToProps)(UserAccount)

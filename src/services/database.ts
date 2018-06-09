@@ -1,11 +1,11 @@
-import 'firebase/firestore';
-import { from } from 'rxjs';
+// import 'firebase/firestore';
+// import { from } from 'rxjs';
 
-import firebase from '../config/firebase';
+// import firebase from '../config/firebase';
 
-const database = firebase.firestore();
+// // const database = firebase.firestore();
 
-export const addToCollection = (collection: any, data: any) => {
-  const dbCall = database.collection(collection).add(data);
-  return from(dbCall);
-};
+// export const addToCollection = (collection: any, data: any) => {
+//   const dbCall = database.collection(collection).add(data);
+//   return from(dbCall);
+// };
