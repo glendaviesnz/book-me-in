@@ -6,7 +6,7 @@ const initialState = {
   name: null,
   photoUrl: null
 };
-export function currentUser(state = initialState, action) {
+export function currentUser(state = initialState, action: any) {
   switch (action.type) {
     case SET_CURRENT_USER:
       return Object.assign({}, state, {

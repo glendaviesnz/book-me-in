@@ -1,5 +1,4 @@
-//@flow
-export interface CurrentUser {
+export interface ICurrentUser {
   name: string;
   email: string;
   photoURL?: string;

@@ -3,11 +3,11 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { default as About } from './About.js';
+import { default as About } from './About';
 import './App.css';
-import { default as Events } from './events/Events.js';
-import { default as Home } from './Home.js';
-import { default as MenuBar } from './layout/MenuBar.js';
+import { default as Events } from './events/Events';
+import { default as Home } from './Home';
+import { default as MenuBar } from './layout/MenuBar';
 
 
 const theme = createMuiTheme();
