@@ -8,7 +8,6 @@ import { ICurrentUser } from '../store/current-user.model';
 import { store } from '../store/redux';
 import UserDetails from './UserDetails';
 
-
 const loginButtonStyles = css`
   margin-left: auto;
 `;
