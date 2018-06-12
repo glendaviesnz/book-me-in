@@ -1,8 +1,13 @@
 import * as React from 'react';
 
-const Login = () => {
+import { login as userLogin } from '../store/current-user.actions';
+import { store } from '../store/redux';
 
-  return <div >Log in here ...</div>;
+const Login = () => {
+    const login = () => {
+        store.dispatch(userLogin());
+    };
+    return <div onClick={login}>Log in with Google</div>;
 };
 
 export default Login;

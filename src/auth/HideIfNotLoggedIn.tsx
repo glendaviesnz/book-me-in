@@ -1,8 +1,6 @@
 import { connect } from 'react-redux'
 import { branch, compose, renderNothing} from 'recompose';
-// import renderComponent from 'recompose/renderComponent'
 
-// import NavigationDrawer from './Navigation';
 const mapStateToProps = (state: any) => {
   return {
       currentUser: state.currentUser
