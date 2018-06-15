@@ -24,7 +24,7 @@ const Home  = ({match} : any) =>{
         </div>
         <div className={appConentStyles}>
         <Link to="/home/about">Go to About</Link>
-        <Link to="/home/events">Go to Events</Link>
+        <Link to="/sss">Go to Events</Link>
            
               <Route path={match.url + '/about'} component={About} />
               <Route path={match.url + '/events'} component={Events} />
