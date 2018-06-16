@@ -8,16 +8,11 @@ import { default as Events } from './events/Events';
 
 import { default as MenuBar } from './layout/MenuBar';
 
-
 const appConentStyles = css`
   padding: 30px;
 `
 const Home  = ({match} : any) =>{
-
-
-  
     return (
-
       <div>
         <div className="App">
           <MenuBar />

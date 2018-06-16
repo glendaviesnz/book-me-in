@@ -1,6 +1,7 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { css } from 'emotion';
 import * as React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
@@ -12,6 +13,10 @@ import { default as Home } from './Home';
 
 import theme from './theme';
 
+const appShell = css`
+  height: 100vh;
+  overflow: hidden;
+`
 const HomeRoute = AuthenticateRoute(() => <Route path="/home" component={Home} />);
 
 class App extends React.Component {
@@ -24,6 +29,7 @@ class App extends React.Component {
       <MuiThemeProvider theme={theme}>
         <Typography />
         <CssBaseline />
+        <div className={appShell}>
         <Router>
           <Switch>
             <Route path="/login" component={Login} />
@@ -33,6 +39,7 @@ class App extends React.Component {
             <Route component={NotFound} />
           </Switch>
         </Router>
+        </div>
       </MuiThemeProvider>
     );
   }

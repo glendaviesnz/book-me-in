@@ -47,8 +47,16 @@ export const initAuthRedirect = () => {
 
 export const authenticate = () => {
   if (firebase.auth) {
+    store.dispatch(
+      setCurrentUser({
+        email: null,
+        loading: true,
+        name: null,
+        photoURL: null
+      })
+    );
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then((result: any) => {
+    firebase.auth().signInWithRedirect(provider).then((result: any) => {
       const x = 1;
       if (x && result) {
         // test
