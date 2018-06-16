@@ -1,25 +1,11 @@
 import firebase from '../config/firebase'
 
-
 import { setCurrentUser } from '../store/current-user.actions';
 import { store } from '../store/redux';
 
 export const initAuthRedirect = () => {
   if (firebase.auth) {
-    firebase
-      .auth()
-      .getRedirectResult()
-      .then((result) => {
-        if (result.credential) {
-          // let token = result.credential.accessToken;
-        }
-      })
-      .catch((error) => {
-        // let errorCode = error.code;
-        // let errorMessage = error.message;
-        // let email = error.email;
-        // let credential = error.credential;
-      });
+    firebase.auth();
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         store.dispatch(
@@ -56,12 +42,7 @@ export const authenticate = () => {
       })
     );
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(provider).then((result: any) => {
-      const x = 1;
-      if (x && result) {
-        // test
-      }
-    });
+    firebase.auth().signInWithRedirect(provider);
   }
 }
 
@@ -69,12 +50,6 @@ export const logout = () => {
   if (firebase.auth) {
     firebase
       .auth()
-      .signOut()
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch(() => {
-        // An error happened.
-      });
+      .signOut();
   }
 }
