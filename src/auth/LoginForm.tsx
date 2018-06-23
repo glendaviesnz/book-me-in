@@ -7,8 +7,8 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { branch, compose, renderComponent } from 'recompose';
 
-import { login as userLogin } from '../store/current-user.actions';
 import { store } from '../store/redux';
+import { login as userLogin } from '../user/current-user.actions';
 import Loading from '../util/Loading';
 
 const loginCardStyles = css`

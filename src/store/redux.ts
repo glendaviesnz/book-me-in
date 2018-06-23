@@ -6,8 +6,8 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mapTo';
 
 import { checkUserRoles, initialiseAuthentication } from '../auth/authentication.epics';
-import { loginEpic } from './current-user.epics';
-import { currentUser } from './current-user.reducer';
+import { loginEpic } from '../user/current-user.epics';
+import { currentUser } from '../user/current-user.reducer';
 
 export const rootEpic = combineEpics(loginEpic, initialiseAuthentication, checkUserRoles);
 const epicMiddleware = createEpicMiddleware(rootEpic);

@@ -1,7 +1,7 @@
 import firebase from '../config/firebase'
 
-import { removeCurrentUser } from '../store/current-user.actions';
 import { store } from '../store/redux';
+import { removeCurrentUser } from '../user/current-user.actions';
 import { checkUserRoles } from './authentication.actions';
 
 export const initAuthRedirect = () => {
