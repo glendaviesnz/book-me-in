@@ -4,7 +4,7 @@ import 'rxjs/add/operator/ignoreElements';
 import { map, switchMap } from 'rxjs/operators';
 
 import { getDocument } from '../services/database';
-import { setCurrentUser } from '../store/current-user.actions';
+import { removeCurrentUser, setCurrentUser } from '../store/current-user.actions';
 import { ICurrentUser } from '../store/current-user.model';
 import { GET_USER_ROLES, INITIALISE_AUTHENTICATION } from './authentication.actions';
 import { initAuthRedirect } from './authentication.service';
@@ -29,13 +29,7 @@ export const checkUserRoles = (action$: any) =>
                             currentUser.roles = users[0].roles;
                             return setCurrentUser(currentUser);
                         } else {
-                            return setCurrentUser({
-                                email: null,
-                                loading: false,
-                                name: null,
-                                photoURL: null,
-                                roles: null
-                            });
+                            return removeCurrentUser();
                         }
                     }));
             })

@@ -7,7 +7,7 @@ export function setCurrentUser(currentUser: any) {
 }
 
 export function removeCurrentUser() {
-  return { type: SET_CURRENT_USER };
+  return { type: REMOVE_CURRENT_USER };
 }
 
 export function login() {

@@ -1,6 +1,6 @@
 import firebase from '../config/firebase'
 
-import { setCurrentUser } from '../store/current-user.actions';
+import { removeCurrentUser } from '../store/current-user.actions';
 import { store } from '../store/redux';
 import { checkUserRoles } from './authentication.actions';
 
@@ -17,14 +17,7 @@ export const initAuthRedirect = () => {
         }))
 
       } else {
-        store.dispatch(
-          setCurrentUser({
-            email: null,
-            loading: false,
-            name: null,
-            photoURL: null
-          })
-        );
+        store.dispatch(removeCurrentUser());
       }
     });
   }
@@ -32,14 +25,7 @@ export const initAuthRedirect = () => {
 
 export const authenticate = () => {
   if (firebase.auth) {
-    store.dispatch(
-      setCurrentUser({
-        email: null,
-        loading: true,
-        name: null,
-        photoURL: null
-      })
-    );
+    store.dispatch(removeCurrentUser());
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithRedirect(provider);
   }
@@ -47,6 +33,7 @@ export const authenticate = () => {
 
 export const logout = () => {
   if (firebase.auth) {
+    store.dispatch(removeCurrentUser());
     firebase
       .auth()
       .signOut();
