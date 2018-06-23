@@ -2,20 +2,20 @@ import firebase from '../config/firebase'
 
 import { setCurrentUser } from '../store/current-user.actions';
 import { store } from '../store/redux';
+import { checkUserRoles } from './authentication.actions';
 
 export const initAuthRedirect = () => {
   if (firebase.auth) {
     firebase.auth();
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        store.dispatch(
-          setCurrentUser({
-            email: user.email,
-            loading: false,
-            name: user.displayName,
-            photoURL: user.photoURL
-          })
-        );
+        store.dispatch(checkUserRoles({
+          email: user.email,
+          loading: false,
+          name: user.displayName,
+          photoURL: user.photoURL
+        }))
+
       } else {
         store.dispatch(
           setCurrentUser({
@@ -23,7 +23,6 @@ export const initAuthRedirect = () => {
             loading: false,
             name: null,
             photoURL: null
-
           })
         );
       }

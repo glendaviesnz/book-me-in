@@ -5,10 +5,11 @@ import { combineEpics } from 'redux-observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mapTo';
 
+import { checkUserRoles, initialiseAuthentication } from '../auth/authentication.epics';
 import { loginEpic } from './current-user.epics';
 import { currentUser } from './current-user.reducer';
 
-export const rootEpic = combineEpics(loginEpic);
+export const rootEpic = combineEpics(loginEpic, initialiseAuthentication, checkUserRoles);
 const epicMiddleware = createEpicMiddleware(rootEpic);
 export const reducers = combineReducers({
   currentUser

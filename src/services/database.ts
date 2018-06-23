@@ -11,3 +11,9 @@ export const getCollection = (collection: string) => {
     return snapshot.docs.map((doc: any) => doc.data());
   }));
 };
+
+export const getDocument = (collection: string, where: string[]) => {
+  return from(database.collection(collection).where(...where).get().then((snapshot: any) => {
+    return snapshot.docs.map((doc: any) => doc.data());
+  }));
+};
