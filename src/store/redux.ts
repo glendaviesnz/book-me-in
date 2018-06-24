@@ -6,13 +6,15 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mapTo';
 
 import { checkUserRoles, initialiseAuthentication } from '../auth/authentication.epics';
+import { notifications } from '../notifications/notifications.reducer';
 import { loginEpic } from '../user/current-user.epics';
 import { currentUser } from '../user/current-user.reducer';
 
 export const rootEpic = combineEpics(loginEpic, initialiseAuthentication, checkUserRoles);
 const epicMiddleware = createEpicMiddleware(rootEpic);
 export const reducers = combineReducers({
-  currentUser
+  currentUser,
+  notifications
 });
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -1,5 +1,4 @@
 import firebase from '../config/firebase'
-
 import { store } from '../store/redux';
 import { removeCurrentUser } from '../user/current-user.actions';
 import { checkUserRoles } from './authentication.actions';

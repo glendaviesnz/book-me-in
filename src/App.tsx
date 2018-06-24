@@ -10,6 +10,7 @@ import './App.css';
 import AuthenticateRoute from './auth/AuthenticateRoute';
 import Login from './auth/Login';
 import { default as Home } from './Home';
+import Notifications from './notifications/Notifications';
 
 import theme from './theme';
 
@@ -40,6 +41,7 @@ class App extends React.Component {
           </Switch>
         </Router>
         </div>
+        <Notifications />
       </MuiThemeProvider>
     );
   }
