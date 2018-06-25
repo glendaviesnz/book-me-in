@@ -2,6 +2,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { css } from 'emotion'
 import * as React from 'react';
+import { translate } from 'react-i18next';
 
 import { logout } from '../auth/authentication.service';
 
@@ -19,6 +20,7 @@ const photoStyles = css`
 interface IUserDetailsProps {
    name: string;
    photoURL?: string;
+   t: any;
 }
 class UserDetails extends React.Component<IUserDetailsProps, any> {
   public state = {
@@ -53,11 +55,11 @@ class UserDetails extends React.Component<IUserDetailsProps, any> {
           open={Boolean(anchorEl)}
           onClose={this.closeMenu}
         >
-          <MenuItem onClick={this.logout}>Logout</MenuItem>
+          <MenuItem onClick={this.logout}>{this.props.t('logout')}</MenuItem>
         </Menu>
       </div>
     );
   }
 }
 
-export default UserDetails;
+export default translate('common')(UserDetails);
