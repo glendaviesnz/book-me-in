@@ -6,7 +6,7 @@ import { checkUserRoles } from './authentication.actions';
 export const initAuthRedirect = () => {
   if (firebase.auth) {
     firebase.auth();
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user: any) => {
       if (user) {
         store.dispatch(checkUserRoles({
           email: user.email,

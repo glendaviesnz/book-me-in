@@ -8,7 +8,12 @@ import 'rxjs/add/operator/mapTo';
 import { checkUserRoles, initialiseAuthentication } from '../auth/authentication.epics';
 import { notifications } from '../notifications/notifications.reducer';
 import { loginEpic } from '../user/current-user.epics';
+import { ICurrentUser } from '../user/current-user.model';
 import { currentUser } from '../user/current-user.reducer';
+
+export interface IRootState {
+  currentUser: ICurrentUser;
+}
 
 export const rootEpic = combineEpics(loginEpic, initialiseAuthentication, checkUserRoles);
 const epicMiddleware = createEpicMiddleware(rootEpic);

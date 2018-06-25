@@ -5,9 +5,10 @@ import { css } from 'emotion'
 import * as React from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { branch, compose, renderComponent } from 'recompose';
+import { branch, compose, mapper, renderComponent } from 'recompose';
 
-import { store } from '../store/redux';
+import { IRootState, store } from '../store/redux';
+import { ICurrentUser } from '../user';
 import { login as userLogin } from '../user/current-user.actions';
 import Loading from '../util/Loading';
 
@@ -21,7 +22,11 @@ const buttonStyles = css`
     justify-content: center;
     height: 150px;
 `
-const mapStateToProps = (state: any) => {
+interface IProps {
+    currentUser: ICurrentUser;
+    loading: boolean;
+}
+const mapStateToProps = (state: IRootState) => {
     return {
         currentUser: state.currentUser,
         loading: state.currentUser.loading
@@ -44,7 +49,7 @@ const Login = Loading(() => {
     );
 });
 
-const CheckLoggin = (isAuthenticated: any) =>
+const CheckLoggin = (isAuthenticated: mapper<{}, boolean>) =>
     compose(
         connect(mapStateToProps),
         branch(
@@ -53,5 +58,5 @@ const CheckLoggin = (isAuthenticated: any) =>
         ))
 
 export default CheckLoggin(
-    ({ currentUser }: any) => currentUser && currentUser.email
+    ({ currentUser }: IProps ) => Boolean(currentUser) && Boolean(currentUser.email)
 )(Login)

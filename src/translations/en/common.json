@@ -1,5 +1,8 @@
 {
     "logout": "Logout",
+    "auth": {
+        "accessDenied": "You do not have permission to access this application"
+    },
     "home": {
         "about": "About",
         "events": "Events"
