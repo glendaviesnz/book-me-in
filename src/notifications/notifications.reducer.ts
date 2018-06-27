@@ -1,5 +1,9 @@
 import { REMOVE_USER_NOTIFICATION, SHOW_USER_NOTIFICATION } from './notifications.actions';
 
+export interface INotificationsState {
+    message: string;
+}
+
 const initialState = {
   message: null
 };

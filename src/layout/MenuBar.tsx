@@ -1,5 +1,3 @@
-// import { connect } from 'react-redux'
-
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
