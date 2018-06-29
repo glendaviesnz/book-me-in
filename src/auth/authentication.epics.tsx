@@ -1,5 +1,6 @@
 import * as i18next from 'i18next';
 import { intersection } from 'lodash';
+import { ofType } from 'redux-observable';
 import { ignoreElements, map, switchMap, tap } from 'rxjs/operators';
 
 import { showUserNotification } from '../notifications/notifications.actions'
@@ -19,8 +20,8 @@ interface IUser {
 
 export const initialiseAuthentication = (action$: any) =>
     action$
-        .ofType(INITIALISE_AUTHENTICATION)
         .pipe(
+            ofType(INITIALISE_AUTHENTICATION),
             tap(() => {
                 initAuthRedirect();
             }),
@@ -29,8 +30,8 @@ export const initialiseAuthentication = (action$: any) =>
 
 export const checkUserRoles = (action$: any) =>
     action$
-        .ofType(GET_USER_ROLES)
         .pipe(
+            ofType(GET_USER_ROLES),
             switchMap(({ currentUser }: { currentUser: ICurrentUser }) => {
                 return getDocument('users', ['email', '==', currentUser.email])
                     .pipe(map((users: IUser[]) => {

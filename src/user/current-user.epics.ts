@@ -1,13 +1,15 @@
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/ignoreElements';
+import { ofType } from 'redux-observable';
+import { ignoreElements, tap } from 'rxjs/operators';
 
 import { authenticate } from '../auth/authentication.service';
 import { LOGIN } from './current-user.actions';
 
 export const loginEpic = (action$: any) =>
   action$
-    .ofType(LOGIN)
-    .do(() => {
-      authenticate();
-    })
-    .ignoreElements();
+    .pipe(
+      ofType(LOGIN),
+      tap(() => {
+        authenticate()
+      }),
+      ignoreElements()
+    )

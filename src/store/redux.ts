@@ -1,8 +1,6 @@
 import { applyMiddleware, combineReducers, compose, createStore,  } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { combineEpics } from 'redux-observable';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/mapTo';
 
 import { checkUserRoles, initialiseAuthentication } from '../auth/authentication.epics';
 import { INotificationsState, notifications } from '../notifications/notifications.reducer';
@@ -16,7 +14,7 @@ export interface IRootState {
 }
 
 export const rootEpic = combineEpics(loginEpic, initialiseAuthentication, checkUserRoles);
-const epicMiddleware = createEpicMiddleware(rootEpic);
+const epicMiddleware = createEpicMiddleware();
 export const reducers = combineReducers({
   currentUser,
   notifications
@@ -34,3 +32,4 @@ export function configureStore(initialState = {}) {
 }
 
 export const store = configureStore();
+epicMiddleware.run(rootEpic);
