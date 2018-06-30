@@ -46,7 +46,7 @@ class UserDetails extends React.Component<IUserDetailsProps, any> {
       <div className={profileStyles} aria-owns={anchorEl ? 'simple-menu' : undefined}
       aria-haspopup="true" onClick={this.openMenu}>
         
-          <div>{this.props.name}</div>
+          <div className="user-name">{this.props.name}</div>
           <img className={photoStyles} src={this.props.photoURL} />
         
         <Menu
@@ -61,5 +61,6 @@ class UserDetails extends React.Component<IUserDetailsProps, any> {
     );
   }
 }
-
 export default translate('common')(UserDetails);
+
+export const UserDetailsUnWrapped = UserDetails;
