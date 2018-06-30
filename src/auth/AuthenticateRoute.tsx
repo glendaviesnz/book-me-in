@@ -4,10 +4,10 @@ import { Redirect } from 'react-router-dom';
 import { branch, compose, mapper, renderComponent } from 'recompose';
 
 import { IRootState } from '../store/redux';
-import { ICurrentUser } from '../user/current-user.model';
+import { CurrentUser } from '../user/current-user.model';
 
 interface IProps {
-  currentUser: ICurrentUser
+  currentUser: CurrentUser
 }
 
 const mapStateToProps = (state: IRootState) => {

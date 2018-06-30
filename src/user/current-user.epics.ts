@@ -1,13 +1,13 @@
-import { ofType } from 'redux-observable';
+import { ActionsObservable, ofType } from 'redux-observable';
 import { ignoreElements, tap } from 'rxjs/operators';
 
 import { authenticate } from '../auth/authentication.service';
-import { LOGIN } from './current-user.actions';
+import { ActionTypes, Login } from './current-user.actions';
 
-export const loginEpic = (action$: any) =>
+export const loginEpic = (action$: ActionsObservable<Login>) =>
   action$
     .pipe(
-      ofType(LOGIN),
+      ofType(ActionTypes.Login),
       tap(() => {
         authenticate()
       }),

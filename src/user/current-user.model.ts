@@ -2,7 +2,7 @@ export enum UserRoles {
   admin = 'admin'
 }
 
-export interface ICurrentUser {
+export interface CurrentUser {
   name: string;
   email: string;
   photoURL?: string;

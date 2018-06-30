@@ -1,12 +1,24 @@
-import { ICurrentUser } from '../user';
+import { Action } from 'redux';
 
-export const INITIALISE_AUTHENTICATION = 'INITIALISE_AUTHENTICATION';
-export const GET_USER_ROLES = 'GET_USER_ROLES';
+import { CurrentUser } from '../user';
 
-export function initialiseAuthentication() {
-  return { type: INITIALISE_AUTHENTICATION };
+export const enum ActionTypes {
+  InitialiseAuth = '[Auth] Intialise Authentication',
+  CheckUserRoles = '[Auth] Check user roles',
 }
 
-export function checkUserRoles(currentUser: ICurrentUser ) {
-    return { type: GET_USER_ROLES, currentUser };
+export const initialiseAuthentication = () => ({ type: ActionTypes.InitialiseAuth });
+
+export const checkUserRoles = (currentUser: CurrentUser) =>
+  ({ type: ActionTypes.CheckUserRoles, currentUser });
+
+interface InitialiseAuth extends Action {
+  type: ActionTypes.InitialiseAuth;
 }
+
+export interface CheckUserRoles extends Action {
+  type: ActionTypes.CheckUserRoles;
+  currentUser: CurrentUser;
+}
+
+export type Actions = InitialiseAuth| CheckUserRoles;

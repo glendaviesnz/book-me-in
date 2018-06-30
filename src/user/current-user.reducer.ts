@@ -1,4 +1,4 @@
-import { REMOVE_CURRENT_USER, SET_CURRENT_USER } from './current-user.actions';
+import { ActionTypes } from './current-user.actions';
 
 const initialState = {
   email: null,
@@ -10,7 +10,7 @@ const initialState = {
 
 export function currentUser(state = initialState, action: any) {
   switch (action.type) {
-    case SET_CURRENT_USER:
+    case ActionTypes.SetCurrentUser:
       return Object.assign({}, state, {
         email: action.currentUser.email,
         loading: action.currentUser.loading,
@@ -19,7 +19,7 @@ export function currentUser(state = initialState, action: any) {
         roles: action.currentUser.roles
       });
 
-    case REMOVE_CURRENT_USER:
+    case ActionTypes.RemoveCurrentUser:
       return {
         email: null,
         loading: null,

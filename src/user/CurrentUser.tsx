@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { IRootState } from '../store/redux';
-import { ICurrentUser } from './current-user.model';
+import { CurrentUser } from './current-user.model';
 import UserDetails from './UserDetails';
 
 const mapStateToProps = (state: IRootState) => {
@@ -13,7 +13,7 @@ const mapStateToProps = (state: IRootState) => {
 };
 
 interface IProps {
-  currentUser: ICurrentUser
+  currentUser: CurrentUser
 }
 const styles = css`
   margin-left: auto;

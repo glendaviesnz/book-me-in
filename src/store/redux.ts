@@ -5,11 +5,11 @@ import { combineEpics } from 'redux-observable';
 import { checkUserRoles, initialiseAuthentication } from '../auth/authentication.epics';
 import { INotificationsState, notifications } from '../notifications/notifications.reducer';
 import { loginEpic } from '../user/current-user.epics';
-import { ICurrentUser } from '../user/current-user.model';
+import { CurrentUser } from '../user/current-user.model';
 import { currentUser } from '../user/current-user.reducer';
 
 export interface IRootState {
-  currentUser: ICurrentUser;
+  currentUser: CurrentUser;
   notifications: INotificationsState;
 }
 

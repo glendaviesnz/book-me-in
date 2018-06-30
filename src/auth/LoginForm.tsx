@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 import { branch, compose, mapper, renderComponent } from 'recompose';
 
 import { IRootState, store } from '../store/redux';
-import { ICurrentUser } from '../user';
+import { CurrentUser } from '../user';
 import { login as userLogin } from '../user/current-user.actions';
 import Loading from '../util/Loading';
 
@@ -23,7 +23,7 @@ const buttonStyles = css`
     height: 150px;
 `
 interface IProps {
-    currentUser: ICurrentUser;
+    currentUser: CurrentUser;
     loading: boolean;
 }
 const mapStateToProps = (state: IRootState) => {
