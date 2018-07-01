@@ -17,12 +17,12 @@ const photoStyles = css`
   margin-left: 10px;
 `;
 
-interface IUserDetailsProps {
+interface Props {
    name: string;
    photoURL?: string;
    t: any;
 }
-class UserDetails extends React.Component<IUserDetailsProps, any> {
+class UserDetails extends React.Component<Props, any> {
   public state = {
     anchorEl: undefined
   };
@@ -44,7 +44,7 @@ class UserDetails extends React.Component<IUserDetailsProps, any> {
     const { anchorEl } = this.state;
     return (
       <div className={profileStyles} aria-owns={anchorEl ? 'simple-menu' : undefined}
-      aria-haspopup="true" onClick={this.openMenu}>
+      aria-haspopup="true" onClick={this.openMenu} data-testid="account-menu">
         
           <div className="user-name">{this.props.name}</div>
           <img className={photoStyles} src={this.props.photoURL} />
