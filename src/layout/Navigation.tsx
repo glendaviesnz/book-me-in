@@ -1,24 +1,33 @@
 import Drawer from '@material-ui/core/Drawer';
-import { css } from 'emotion'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import EventIcon from '@material-ui/icons/Event';
 import * as React from 'react';
+import { translate } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-const navigationStyles = css`
-  width: 215px;
-  padding: 20px;
-`;
 interface IProps {
   open: boolean;
-  toggle: any
+  toggle: any;
+  t: any;
 }
-const NavigationDrawer = ({ open, toggle }: IProps) => {
+const NavigationDrawer = ({ open, toggle, t }: IProps) => {
   return (
     <Drawer anchor="left" open={open} onClick={toggle}>
-      <div className={navigationStyles}>
-        <Link to="/events">Events</Link>
-      </div>
+
+        <List component="nav">
+            <ListItem  component={Link} {...{to: "/home/events"}} button={true}>
+              <ListItemIcon>
+                <EventIcon />
+              </ListItemIcon>
+              <ListItemText primary="Events" />
+            </ListItem>
+        </List>
+
     </Drawer>
   );
 };
 
-export default NavigationDrawer;
+export default translate('common')(NavigationDrawer);
