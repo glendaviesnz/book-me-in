@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cleanup, render, fireEvent } from 'react-testing-library';
+import { cleanup, fireEvent, render } from 'react-testing-library';
 
 import { UserDetailsUnWrapped } from './UserDetails';
 

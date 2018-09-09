@@ -18,9 +18,9 @@ const photoStyles = css`
 `;
 
 interface Props {
-   name: string;
-   photoURL?: string;
-   t: any;
+  name: string;
+  photoURL?: string;
+  t: any;
 }
 class UserDetails extends React.Component<Props, any> {
   public state = {
@@ -43,12 +43,13 @@ class UserDetails extends React.Component<Props, any> {
   public render() {
     const { anchorEl } = this.state;
     return (
-      <div className={profileStyles} aria-owns={anchorEl ? 'simple-menu' : undefined}
-      aria-haspopup="true" onClick={this.openMenu} data-testid="account-menu">
-        
+      <div>
+        <div className={profileStyles} aria-owns={anchorEl ? 'simple-menu' : undefined}
+          aria-haspopup="true" onClick={this.openMenu} data-testid="account-menu">
+
           <div className="user-name">{this.props.name}</div>
           <img className={photoStyles} src={this.props.photoURL} />
-        
+        </div>
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
@@ -57,6 +58,7 @@ class UserDetails extends React.Component<Props, any> {
         >
           <MenuItem onClick={this.logout}>{this.props.t('logout')}</MenuItem>
         </Menu>
+
       </div>
     );
   }
