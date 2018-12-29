@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
-import { UserDetailsUnWrapped } from './UserDetails';
+import UserDetails  from './UserDetails';
 
 describe('UserDetails', () => {
   let renderedComponent: any;
-  const translationMock = (value: string) => value;
 
   beforeEach(() => {
-    renderedComponent = render(<UserDetailsUnWrapped name="Jim Smith" t={translationMock} />);
+    renderedComponent = render(<UserDetails name="Jim Smith"  />);
   })
 
   afterEach(cleanup);  
@@ -22,7 +21,7 @@ describe('UserDetails', () => {
     const { getByText, rerender } = renderedComponent;
 
     expect(getByText('Jim Smith')).toBeDefined();
-    rerender(<UserDetailsUnWrapped name="Sally Smith" t={translationMock} />);
+    rerender(<UserDetails name="Sally Smith"  />);
     expect(getByText('Sally Smith')).toBeDefined();
   });
 

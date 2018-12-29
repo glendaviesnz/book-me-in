@@ -7,9 +7,10 @@ interface IWithLoadingProps {
 
 const WithLoading = <P extends object>(Component: React.ComponentType<P>)
   : React.SFC<P & IWithLoadingProps> => {
-  return ({ loading, ...props }: IWithLoadingProps) => {
+  return ({ loading, ...props  }: IWithLoadingProps) => {
+
     if (!loading) {
-      return (<Component {...props} />);
+      return (<Component {...(props as P)} />);
     } else {
       return (<CircularProgress color="primary" size={40} className="fadeOut" />);
     }

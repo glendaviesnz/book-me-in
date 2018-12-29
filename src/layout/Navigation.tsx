@@ -5,15 +5,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import EventIcon from '@material-ui/icons/Event';
 import * as React from 'react';
-import { translate } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 interface IProps {
   open: boolean;
   toggle: any;
-  t: any;
 }
-const NavigationDrawer = ({ open, toggle, t }: IProps) => {
+const NavigationDrawer: React.SFC<IProps> = ({ open, toggle }) => {
   return (
     <Drawer anchor="left" open={open} onClick={toggle}>
 
@@ -30,4 +28,4 @@ const NavigationDrawer = ({ open, toggle, t }: IProps) => {
   );
 };
 
-export default translate('common')(NavigationDrawer);
+export default NavigationDrawer;
